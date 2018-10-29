@@ -57,42 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     CustomAuthenticationFailHandler customAuthenticationFailHandler;
-    /*
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http .csrf().disable()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER)
-                .and()
-                .authorizeRequests()
-                        .antMatchers("/**","/internal/user/login").permitAll()
-                        .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        .antMatchers("/user/**").hasAuthority("USER")
-                        .antMatchers("/admin/**").hasAuthority("ADMIN")
-                        .anyRequest().authenticated()
-                        .and()
-                //.formLogin()
-                //    .and()
-                .logout();
-    }
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userService)
-                .passwordEncoder(userService.passwordEncoder());
-    }
-
-    @Bean
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
-
-    @Bean
-    public HttpSessionStrategy httpSessionStrategy() {
-        return new HeaderHttpSessionStrategy();
-    }
-*/
     @Override
     public void configure(WebSecurity web) throws Exception {
         //허용경로.
