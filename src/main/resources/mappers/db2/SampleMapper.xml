@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="SampleMapper">
+
+    <select id="getList" resultType="Map">
+        SELECT
+            id,
+            name
+        FROM
+            tb_test
+    </select>
+
+    <select id="getList2" resultType="Map">
+        SELECT
+            id,
+            name
+        FROM
+            tb_test
+    </select>
+
+    <insert id="setData">
+
+        INSERT INTO TB_TEST
+        (
+            id,
+            name
+        )
+        VALUES
+        (
+            "11",
+            "박보영"
+        )
+
+    </insert>
+
+    <insert id="setData2">
+
+        INSERT INTO TB_TESTB
+        (
+            id,
+            name
+        )
+        VALUES
+        (
+            "1",
+            "박보영"
+        )
+
+    </insert>
+
+</mapper>
