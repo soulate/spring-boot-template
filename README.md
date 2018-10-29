@@ -1,5 +1,5 @@
 # spring-boot-template
-spring boot 2.0 Basic Template
+Spring boot 2.0 Basic Template
 
 1. 로그인.
 2. 멀티 데이터 소스 설정.
