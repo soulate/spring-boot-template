@@ -1,4 +1,4 @@
-# spring-boot-template
+# Spring-boot-template
 Spring boot 2.0 Basic Template
 
 1. 로그인.
