@@ -22,9 +22,9 @@ PW : <input id="password" name="password" type="password" size="10" value="pass1
 <br/>
 --%>
 
-USERNAME : <input id="email" name="email" type="text" size="10" value="admin@test.com"/>
+USERNAME : <input id="email" name="email" type="text" size="20" value="admin@test.com"/>
 <br/>
-PW : <input id="password" name="password" type="password" size="10" value="admin"/>
+PW : <input id="password" name="password" type="password" size="20" value="admin"/>
 <br/>
 <c:if test="${not empty sessionScope.message}">
     <br/>
