@@ -1,7 +1,9 @@
 package com.template.sample.vo;
 
 import com.template.common.util.InvalidParameterException;
+import com.template.common.util.StaticMessageSource;
 import lombok.Data;
+import org.springframework.context.MessageSource;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -9,10 +11,10 @@ import javax.validation.constraints.Size;
 @Data
 public class SampleValidator {
 
-    @Size(min=2, max=30, message = "{field.required.size.2~30}")
+    @Size(min=2, max=30, message = "field.required.size.2~30")
     private String name;
 
-    @NotNull(message = "{field.required.msg}")
+    @NotNull(message = "field.required.msg")
     @Size(min=1 )
     private String msg;
 
@@ -23,7 +25,8 @@ public class SampleValidator {
     */
 
     public void validate(){
-        String msg = String.format("%s : '%s'" , "커스텀 ","오류");
+        //사용자 정의 오류.
+        String msg = StaticMessageSource.getMessage("field.required.custom", null);
         throw new InvalidParameterException(msg);
     }
 

@@ -48,21 +48,6 @@ PW : <input id="password" name="password" type="password" size="20" value="admin
 
 <script>
 
-    function fnLogin(){
-
-        var param = {username : $("#username").val() , password : $("#password").val()};
-
-        console.log(param)
-
-        axios.post('/internal/user/login', param)
-            .then(function (response) {
-                console.log("success :: ",response.data);
-            })
-            .catch(function (error) {
-                console.log("error msg :: ", error.response.data);
-            });
-    }
-
     /*
     $('.btn_social').click(function () {
         var socialType = $(this).data('social');

@@ -75,7 +75,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                  //   .and()
                 .authorizeRequests()
                     // ROLE_USER, ROLE_ADMIN으로 권한 분리 URL 정의
-                    .antMatchers("/", "/login", "/error**").permitAll()
+                    .antMatchers("/", "/login", "/error**","/locale").permitAll()
                     .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                     .antMatchers("/user/**").hasAuthority("USER")
                     .antMatchers("/mypage/**").hasAuthority("USER")

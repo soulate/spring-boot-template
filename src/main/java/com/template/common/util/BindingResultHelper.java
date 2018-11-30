@@ -1,18 +1,31 @@
 package com.template.common.util;
 
+import oracle.jdbc.proxy.annotation.Post;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 public class BindingResultHelper {
 
     private static Logger logger = LoggerFactory.getLogger(BindingResultHelper.class);
+
+    @Autowired
+    private MessageSource messageSource;
+
+    @PostConstruct
+    public void init(){
+        StaticMessageSource.setMessageSource(messageSource);
+    }
 
     public static void invalidParameterException(BindingResult bindingResult) {
 
@@ -20,7 +33,7 @@ public class BindingResultHelper {
         List<FieldError> fieldErrors = bindingResult.getFieldErrors();
         if (!fieldErrors.isEmpty()) {
             String message = fieldErrors.stream()
-                    .map(e -> String.format("%s : '%s'", e.getField(), (e.getDefaultMessage()==null)?e.getObjectName():e.getDefaultMessage()))
+                    .map(e -> String.format("%s : '%s'", e.getField(), (e.getDefaultMessage()==null)?e.getObjectName():StaticMessageSource.getMessage(e.getDefaultMessage(), null) ))
                     .collect(Collectors.joining(" , "));
 
             logger.error("message :::::::::: " + message);
